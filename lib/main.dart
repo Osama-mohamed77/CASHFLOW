@@ -6,6 +6,7 @@ import 'package:cashflow/presentation/ideas.dart';
 import 'package:cashflow/presentation/money_management.dart';
 import 'package:cashflow/core/widgets/nav_bar.dart';
 
+
 import 'package:cashflow/providers/answer_provider.dart';
 import 'package:cashflow/providers/home_provider.dart';
 import 'package:cashflow/providers/money_provider.dart';
