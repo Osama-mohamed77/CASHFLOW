@@ -35,7 +35,7 @@ A Flutter app that helps you understand your financial position, track your cash
   </tr>
   <tr>
     <td align="center"><b>Tips</b><br/><img src="docs/screenshots/tips.jpg" width="200"/></td>
-    <td align="center"><b>Category Locked</b><br/><img src="docs/screenshots/money_flow
+    <td align="center"><b>money flow</b><br/><img src="docs/screenshots/money_flow
     .jpg" width="200"/></td>
     <td></td>
   </tr>
