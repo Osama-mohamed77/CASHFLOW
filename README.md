@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💰 Cashflow
 
 A Flutter app that helps you understand your financial position, track your cash flow, and get personalized money advice — based on the popular "Cashflow Quadrant" concept (Employee, Self-employed, Business owner, Investor).
@@ -117,3 +118,6 @@ lib/
 
 ## 📄 License
 This project is for learning purposes.
+=======
+# CASHFLOW
+>>>>>>> 8ecb3b0934051c7a4f00f4e0b5b7fbbf9d12fcba
