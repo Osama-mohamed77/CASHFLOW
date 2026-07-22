@@ -1,3 +1,7 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "yaml.disableSchemaDetection": [],
+    "yaml.schemas": {
+        "https://www.schemastore.org/pubspec.json": "file:///d%3A/flutter%20projects/Cashflow/pubspec.yaml"
+    }
 }

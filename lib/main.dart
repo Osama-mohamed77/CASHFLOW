@@ -1,53 +1,34 @@
+import 'package:cashflow/cash_flow_app.dart';
+import 'package:cashflow/core/data/data_source/money_model_adapter.dart';
+import 'package:cashflow/core/data/models/answers_model.dart';
+import 'package:cashflow/core/data/repos/answers_repo.dart';
+import 'package:cashflow/features/money_screen/data/model/money_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:cashflow/core/utils/splash_screen.dart';
-import 'package:cashflow/presentation/home.dart';
-import 'package:cashflow/presentation/ideas.dart';
-import 'package:cashflow/presentation/money_management.dart';
-import 'package:cashflow/core/widgets/nav_bar.dart';
-
-
-import 'package:cashflow/providers/answer_provider.dart';
-import 'package:cashflow/providers/home_provider.dart';
-import 'package:cashflow/providers/money_provider.dart';
-import 'package:cashflow/providers/page_index_provider.dart';
+import 'package:cashflow/core/data/logic/answer_provider.dart';
+import 'package:cashflow/features/home/logic/home_provider.dart';
+import 'package:cashflow/features/money_screen/logic/money_provider.dart';
+import 'package:cashflow/core/data/logic/page_index_provider.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(MoneyModelAdapter());
+  await Hive.openBox<MoneyModel>('moneyBox');
+  final MoneyProvider moneyProvider = MoneyProvider();
+  await moneyProvider.loadMoneyData();
+  final AnswerModel answerModel = AnswerModel();
+  final AnswerRepo answerRepo = AnswerRepo(answerModel);
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => PageIndexProvider()),
-        ChangeNotifierProvider(create: (_) => AnswerProvider()),
+        ChangeNotifierProvider(create: (_) => AnswerProvider(answerRepo)),
         ChangeNotifierProvider(create: (_) => MoneyProvider()),
         ChangeNotifierProvider(create: (_) => HomeProvider()),
       ],
       child: const CashFlow(),
     ),
   );
-}
-
-class CashFlow extends StatelessWidget {
-  const CashFlow({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(393, 852),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (BuildContext context, child) {
-        return MaterialApp(
-          routes: {
-            Home.id: (context) => const Home(),
-            MoneyManagement.id: (context) => const MoneyManagement(),
-            NavBar.id: (context) => const NavBar(),
-            IdeasScreen.id: (context) => const IdeasScreen(),
-          },
-          debugShowCheckedModeBanner: false,
-          home: const SplashScreen(),
-        );
-      },
-    );
-  }
 }

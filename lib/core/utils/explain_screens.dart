@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:cashflow/core/constants/my_colors.dart';
-import 'package:cashflow/presentation/onBording/first_screen.dart';
-import 'package:cashflow/presentation/onBording/second_screen.dart';
-import 'package:cashflow/presentation/onBording/third_screen.dart';
-import 'package:cashflow/core/widgets/error_message.dart';
+import 'package:cashflow/constants/my_colors.dart';
+import 'package:cashflow/features/onBording/ui/first_screen.dart';
+import 'package:cashflow/features/onBording/ui/second_screen.dart';
+import 'package:cashflow/features/onBording/ui/third_screen.dart';
+import 'package:cashflow/core/widgets/posh_message.dart';
 import 'package:cashflow/core/widgets/nav_bar.dart';
-import 'package:cashflow/providers/answer_provider.dart';
-import 'package:cashflow/providers/page_index_provider.dart';
+import 'package:cashflow/core/data/logic/answer_provider.dart';
+import 'package:cashflow/core/data/logic/page_index_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

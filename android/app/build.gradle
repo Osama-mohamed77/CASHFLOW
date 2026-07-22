@@ -30,7 +30,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cashflow"
-        minSdk = 21  // Minimum SDK version
+        minSdkVersion = flutter.minSdkVersion  // Minimum SDK version
         targetSdk = 34  // Update to SDK 34
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
@@ -42,7 +42,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '17'  // Ensure Kotlin is targeting JVM 17
+        jvmTarget = '17'  
     }
 
     buildTypes {
